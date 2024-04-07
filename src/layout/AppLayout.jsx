@@ -16,10 +16,15 @@ const AppLayout = () => {
       <Navbar expand="lg" className="navbar" data-bs-theme="dark">
         <Container fluid>
           <Navbar.Brand href="#" onClick={() => (window.location.href = "/")}>
-            <img
+            {/* <img
               src="https://images.ctfassets.net/4cd45et68cgf/4nBnsuPq03diC5eHXnQYx/d48a4664cdc48b6065b0be2d0c7bc388/Netflix-Logo.jpg"
               alt="Netflix Logo"
               style={{ width: "93px", height: "auto" }} // 이미지 크기 조정
+            /> */}
+            <img
+              src="/image/LOGO_N.PNG"
+              alt="Netflix Logo"
+              style={{ width: "70px", height: "50px" }} // 이미지 크기 조정
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
