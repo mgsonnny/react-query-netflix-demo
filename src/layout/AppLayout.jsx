@@ -7,6 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //bg-body-tertiary
 
@@ -34,13 +35,19 @@ const AppLayout = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#" onClick={() => (window.location.href = "/")}>
+              {/* <Nav.Link href="#" onClick={() => (window.location.href = "/")}>
                 Home
               </Nav.Link>
               <Nav.Link
                 href="#"
                 onClick={() => (window.location.href = "/movies")}
               >
+                Movies
+              </Nav.Link> */}
+              <Nav.Link as={Link} to="/" className="text-white">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/movies" className="text-white">
                 Movies
               </Nav.Link>
             </Nav>
