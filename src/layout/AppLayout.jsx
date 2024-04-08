@@ -23,8 +23,8 @@ const AppLayout = () => {
               style={{ width: "93px", height: "auto" }} // 이미지 크기 조정
             /> */}
             <img
-              src="/image/LOGO_N.PNG"
-              alt="Netflix Logo"
+              src="/image/LOGO_SON.PNG"
+              alt="Logo"
               style={{ width: "70px", height: "50px" }} // 이미지 크기 조정
             />
           </Navbar.Brand>
