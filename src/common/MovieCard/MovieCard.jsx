@@ -2,8 +2,20 @@ import React from "react";
 import Badge from "react-bootstrap/Badge";
 import Stack from "react-bootstrap/Stack";
 import "./MovieCard.style.css";
+import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
 
 const MovieCard = ({ movie }) => {
+  const { data: genreData } = useMovieGenreQuery(); //data:genreData data를 genreData로 이름 재정의
+  console.log("장르데이터", genreData);
+  const showGenre = (genreIdList) => {
+    if (!genreData) return [];
+    const genreNameList = genreIdList.map((id) => {
+      const genreObj = genreData.find((genre) => genre.id === id);
+      return genreObj.name;
+    });
+    return genreNameList;
+  };
+
   return (
     <div
       style={{
@@ -16,21 +28,23 @@ const MovieCard = ({ movie }) => {
     >
       <div className="overlay">
         <h2>{movie.title}</h2>
-        {movie.genre_ids.map((id) => (
-          <Badge bg="danger">{id}</Badge>
+        {showGenre(movie.genre_ids).map((genre, index) => (
+          <Badge bg="danger" key={index}>
+            {genre}
+          </Badge>
         ))}
         <div>
           <div>
             <Badge bg="warning" text="dark">
               평점
             </Badge>
-            {movie.vote_average}
+            {" " + Math.floor(movie.vote_average * 10) / 10}
           </div>
           <div>
             <Badge bg="warning" text="dark">
               인기
             </Badge>
-            {movie.popularity}
+            {" " + Math.floor(movie.popularity)}
           </div>
           <div>
             {movie.adult ? (
